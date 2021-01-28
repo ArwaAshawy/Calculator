@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>HTML calculator</h1>
+    </header>
+    <div id="calc-parent">
+        <div class="rows">
+            <div class="row">
+                <div class="row">
+                    <div class="col" id="calc-display-val">0</div>
+                </div>
+                <div class="row">
+                    <div class="calc-btn col" id="calc-clear">AC</div>
+                    <div class="calc-btn col" id="calc-backspace">&#8676</div>
+                    <div class="calc-btn col" id="calc-remainder">%</div>
+                    <div class="calc-btn  calc-btn-operator col" id="calc-division">&#247</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="calc-btn calc-btn-num col" id="calc-seven">7</div>
+                <div class="calc-btn calc-btn-num col" id="calc-eight">8</div>
+                <div class="calc-btn calc-btn-num col" id="calc-nine">9</div>
+                <div class="calc-btn  calc-btn-operator col" id="calc-multiply">x</div>
+            </div>
+            <div class="row">
+                <div class="calc-btn calc-btn-num col" id="calc-four">4</div>
+                <div class="calc-btn calc-btn-num col" id="calc-five">5</div>
+                <div class="calc-btn calc-btn-num col" id="calc-six">6</div>
+                <div class="calc-btn  calc-btn-operator col" id="calc-minus">-</div>
+            </div>
+            <div class="row">
+                <div class="calc-btn calc-btn-num col" id="calc-one">1</div>
+                <div class="calc-btn calc-btn-num col" id="calc-two">2</div>
+                <div class="calc-btn calc-btn-num col" id="calc-three">3</div>
+                <div class="calc-btn  calc-btn-operator col" id="calc-plus">+</div>
+            </div>
+            <div class="row">
+                <div class="calc-btn calc-btn-num col" id="calc-zero">0</div>
+                <div class="calc-btn col" id="calc-decimal">.</div>
+                <div class="calc-btn  calc-btn-operator col" id="calc-equals">=</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        let oneBtn = document.getElementById('calc-one');
+        let twoBtn = document.getElementById('calc-two');   
+        let threeBtn = document.getElementById('calc-thre')   
+        let fourBtn = document.getElementById('calc-four');   
+        let fiveBtn = document.getElementById('calc-five');   
+        let sixBtn = document.getElementById('calc-six');    
+        let sevenBtn = document.getElementById('calc-seven');    
+        let eightBtn = document.getElementById('calc-eight');  
+        let nineBtn = document.getElementById('calc-nine');
+        let zeroBtn = document.getElementById('calc-zero');
+
+        let decimalBtn = document.getElementById('calc-decimal');
+        let clearBtn = document.getElementById('calc-clear');
+        let backspaceBtn = document.getElementById('calc-backspace');
+        let displayValElement = document.getElementById('calc-display-val');
+        
+        let calcBtnNum= document.getElementsByClassName('calc-btn-num ');
+        let calcBtnOperator= document.getElementsByClassName('calc-btn-operator ');
+        let dispalyVal = '0';
+        let penndingVal;
+        let evalStringArray = []; 
+
+        let updateDisplayVal = (clickObj) => {
+            let btnText = clickObj.target.innerText;
+            if (dispalyVal === '0'){
+                dispalyVal = '';
+                displayVal += btnText;
+                displayValElement.innerText = displayVal;
+            }
+        }
+
+        for (let i=0;  i<calcBtnNum.length; i++){
+            calcBtnNum[i].addEventListener('click', updateDispalyVal, false);
+        }
+
+        for (let i=0;  i<calcBtnOperator.length; i++){
+            calcBtnOperator[i].addEventListener('click', performOperation, false);
+        }
+
+      
+
+        // clearBtn.onclick = () => {
+        //     displayVal = 0;
+        //     penndingVal = ;
+
+        // }
+    </script>
+</body>
+
+</html>
